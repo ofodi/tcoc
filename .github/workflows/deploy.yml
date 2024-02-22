@@ -30,7 +30,7 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.SSH_KEY3 }}
+        key: ${{ secrets.SSH_KEY2 }}
         script: |
           docker stop tcoc_frontend || true
           docker rm tcoc_frontend || true
