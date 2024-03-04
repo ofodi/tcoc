@@ -17,3 +17,13 @@ jobs:
       - name: Publish image to docker hub
         run: docker push ofodic065/tcoc_frontend:latest
         
+  deploy:
+    needs: build
+    runs-on: rhocom
+    steps:
+      - name: Pull image from docker hub
+        run: docker push ofodic065/tcoc_frontend:latest
+      - name: Delete old container
+        run: docker rm -f tcoc_frontend-container
+      - name: Run docker container
+        run: docker run -d -p 3000:3000 --name tcoc_frontend-container ofodic065/tcoc_frontend
