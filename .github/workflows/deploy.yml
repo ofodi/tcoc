@@ -19,7 +19,7 @@ jobs:
         
   deploy:
     needs: build
-    runs-on: rhocom
+    runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
         run: docker push ofodic065/tcoc_frontend:latest
