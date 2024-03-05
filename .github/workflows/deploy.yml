@@ -25,7 +25,7 @@ jobs:
       - name: Publish image to docker hub
         run: docker push ofodic065/tcoc_frontend:latest
         
-  deploy:
+  deployx:
     needs: build
     runs-on: self-hosted
     steps:
