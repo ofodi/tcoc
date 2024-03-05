@@ -21,9 +21,11 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Pull image from docker hub
-        run: docker push ofodic065/tcoc_frontend:latest
-      - name: Delete old container
-        run: docker rm -f tcoc_frontend-container
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ofodic065/tcoc_frontend:latest
       - name: Run docker container
         run: docker run -d -p 3000:3000 --name tcoc_frontend-container ofodic065/tcoc_frontend
