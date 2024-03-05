@@ -42,4 +42,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f tcoc_frontend-container
       - name: Run docker container
-        run: docker run -d -p 3000:3000 --name tcoc_frontend-container ofodic065/tcoc_frontend
+        run: docker run -d -p 3000:80 --name tcoc_frontend-container ofodic065/tcoc_frontend
