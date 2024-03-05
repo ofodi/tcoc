@@ -29,8 +29,14 @@ jobs:
     needs: buildx
     runs-on: self-hosted
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+        
       - name: Pull image from docker hub
         run: docker pull ofodic065/tcoc_frontend:latest
       - name: Delete old container
